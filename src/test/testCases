@@ -1,0 +1,78 @@
+#1
+Summary: Verify that a user can successfully log in to the petstore website
+Preconditions: User should be created before the test run
+
+STR
+1. Go to https://petstore.octoperf.com/actions/Catalog.action
+2. Click on the 'Sign In' link in the top of the page
+3. Fill in 'Username' field with valid login
+4. Fill in 'Password' field with valid password
+5. Click on 'Login' button
+
+ER
+User is successfully signed in
+'My Account' and 'Sign Out' links are displayed in header of the page
+------------------------------------------------------------------------------------------------------------------------
+#2
+Summary: Verify that a user can add a product to the shopping cart
+
+1. Go to https://petstore.octoperf.com/actions/Catalog.action
+2. Click on 'Fish' product category link on the left side of the page
+3. Click on the top product id link in the list to view the product details
+4. Click on 'Add to Cart' button for the top item in the list
+
+ER
+User is redirected to 'Shopping Cart' page
+Added product is displayed in the cart with quantity 1
+------------------------------------------------------------------------------------------------------------------------
+#3
+Summary: Verify that a user can remove products from the shopping cart
+
+1. Go to https://petstore.octoperf.com/actions/Catalog.action
+2. Click on 'Sign In' link
+3. Login with valid credentials
+4. Click on 'Fish' product category link on the left side of the page
+5. Click on the top product id link in the list to view the product details
+6. Click on 'Add to Cart' button for the top item in the list
+7. Click on the 'Proceed to Checkout' button
+8. Click on 'Continue' button
+9. Click on 'Confirm' button
+
+ER1
+New order summary with order id is displayed on the page
+'Thank you, your order has been submitted.' message is displayed
+
+10. Memorize order id
+11. Click on 'My Account' link
+12. Click on 'My Orders' link
+
+ER2
+Order with memorized order id is displayed on 'My Orders page'
+------------------------------------------------------------------------------------------------------------------------
+#4
+Summary: Verify that a user can make an order
+Preconditions: User should be created before the test run
+
+1. Go to https://petstore.octoperf.com/actions/Catalog.action
+2. Click on 'Fish' product category link on the left side of the page
+3. Click on the top product id link in the list to view the product details
+4. Click on 'Add to Cart' button for the top item in the list
+5. Click on the 'Remove' button
+
+ER
+Added product was removed from the shopping cart
+'Your cart is empty' message is displayed
+------------------------------------------------------------------------------------------------------------------------
+#5
+Summary: Verify that a user can can't make an order without being signed in
+
+1. Go to https://petstore.octoperf.com/actions/Catalog.action
+2. Click on 'Fish' product category link on the left side of the page
+3. Click on the top product id link in the list to view the product details
+4. Click on 'Add to Cart' button for the top item in the list
+5. Click on 'Proceed to Checkout' button
+
+ER
+User is redirected to Login page
+'You must sign on before attempting to check out. Please sign on and try checking out again.' message is displayed
+
