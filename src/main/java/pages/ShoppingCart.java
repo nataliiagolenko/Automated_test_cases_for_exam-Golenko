@@ -57,6 +57,11 @@ public class ShoppingCart extends ParentPage {
         clickOnElement(checkOutButton);
         return new LoginPage(webDriver);
     }
+
+    public OrderSummaryPage clickOnProceedToCheckoutButton() {
+        clickOnElement(checkOutButton);
+        return new OrderSummaryPage(webDriver);
+    }
 }
 
 

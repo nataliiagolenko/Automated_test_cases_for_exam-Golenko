@@ -19,6 +19,7 @@ public class HeaderElement extends CommonActionsWithElements {
     public HeaderElement(WebDriver webDriver) {
         super(webDriver);
     }
+
     public LoginPage clickOnSignInLink() {
         clickOnElement(signIn);
         return new LoginPage(webDriver);

@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class LoginTest extends BaseTest {
     @Test
-    public void validLogin() {
+    public void TC1_validLogin() {
         cataloguePage
                 .openCataloguePage()
                 .getHeaderElement().clickOnSignInLink()
@@ -14,8 +14,6 @@ public class LoginTest extends BaseTest {
                 .enterPasswordIntoInputPassword("qwerty123")
                 .clickOnLoginButton()
                 .getHeaderElement().checkUserIsLoggedIn()
-                .checkCataloguePageIsOpened()
-
-        ;
+                .checkCataloguePageIsOpened();
     }
 }
