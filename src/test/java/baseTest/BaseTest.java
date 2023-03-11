@@ -17,7 +17,7 @@ public class BaseTest {
     protected CataloguePage cataloguePage;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
@@ -29,7 +29,7 @@ public class BaseTest {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         webDriver.quit();
         logger.info("Browser was closed");
 
