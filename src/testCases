@@ -26,7 +26,8 @@ User is redirected to 'Shopping Cart' page
 Added product is displayed in the cart with quantity 1
 ------------------------------------------------------------------------------------------------------------------------
 #3
-Summary: Verify that a user can remove products from the shopping cart
+Summary: Verify that a user can make an order
+Preconditions: User should be created before the test run
 
 1. Go to https://petstore.octoperf.com/actions/Catalog.action
 2. Click on 'Sign In' link
@@ -50,8 +51,7 @@ ER2
 Order with memorized order id is displayed on 'My Orders page'
 ------------------------------------------------------------------------------------------------------------------------
 #4
-Summary: Verify that a user can make an order
-Preconditions: User should be created before the test run
+Summary: Verify that a user can remove products from the shopping cart
 
 1. Go to https://petstore.octoperf.com/actions/Catalog.action
 2. Click on 'Fish' product category link on the left side of the page

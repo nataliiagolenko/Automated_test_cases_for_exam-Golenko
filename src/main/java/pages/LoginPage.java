@@ -21,6 +21,7 @@ public class LoginPage extends ParentPage {
     }
 
     public LoginPage checkLoginPageIsOpened() {
+        //TODO checkURL
         Assert.assertTrue("Wrong page is opened", isElementDisplayed(loginButton));
         return this;
     }
