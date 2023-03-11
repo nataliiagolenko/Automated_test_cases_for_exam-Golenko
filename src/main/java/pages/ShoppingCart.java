@@ -24,6 +24,9 @@ public class ShoppingCart extends ParentPage {
     @FindBy (xpath = ".//*[text()='Your cart is empty.']")
     private WebElement emptyCardMessage;
 
+    @FindBy(xpath = ".//a[@class='Button' and text()='Proceed to Checkout']")
+    private WebElement checkOutButton;
+
     public ShoppingCart(WebDriver webDriver) {
         super(webDriver);
     }
@@ -48,6 +51,11 @@ public class ShoppingCart extends ParentPage {
         Assert.assertTrue("Product wasn't removed from the cart", isElementDisplayed(emptyCardMessage));
         Assert.assertEquals("Product wasn't removed from the cart", 0, removeList.size());
         return this;
+    }
+
+    public LoginPage clickOnProceedToCheckOutButtonUnauthorized() {
+        clickOnElement(checkOutButton);
+        return new LoginPage(webDriver);
     }
 }
 

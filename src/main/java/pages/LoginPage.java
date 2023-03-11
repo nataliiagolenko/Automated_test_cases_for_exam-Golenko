@@ -16,6 +16,9 @@ public class LoginPage extends ParentPage {
     @FindBy(xpath = ".//input[@name='password']")
     private WebElement passwordField;
 
+    @FindBy(xpath = ".//*[text()='You must sign on before attempting to check out.  Please sign on and try checking out again.']")
+    private WebElement warningMessage;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -39,5 +42,11 @@ public class LoginPage extends ParentPage {
     public CataloguePage clickOnLoginButton() {
         clickOnElement(loginButton);
         return new CataloguePage(webDriver);
+    }
+
+    public LoginPage checkIsRedirectToLoginPage(){
+        checkLoginPageIsOpened();
+        Assert.assertTrue("No warning message", isElementDisplayed(warningMessage));
+        return this;
     }
 }

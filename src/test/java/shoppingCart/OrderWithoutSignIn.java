@@ -3,10 +3,9 @@ package shoppingCart;
 import baseTest.BaseTest;
 import org.junit.Test;
 
-public class RemoveProductTest extends BaseTest {
-
+public class OrderWithoutSignIn extends BaseTest {
     @Test
-    public void removeProduct(){
+    public void orderUnauthorizedUser(){
         cataloguePage
                 .openCataloguePage()
                 .clickOnFishCategory()
@@ -15,7 +14,10 @@ public class RemoveProductTest extends BaseTest {
                 .addTopProductToCart()
                 .checkIsRedirectToShoppingCart()
                 .checkProductIsAddedToShoppingCart()
-                .clickOnRemoveButton()
-                .checkShoppingCartIsEmpty();
+                .clickOnProceedToCheckOutButtonUnauthorized()
+                .checkIsRedirectToLoginPage()
+
+        ;
     }
 }
+
