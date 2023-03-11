@@ -9,7 +9,11 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
+target/
+target/generated-sources/
+target/generated-test-sources/
+target/test-classes
+target/site
 # Package Files #
 *.jar
 *.war
