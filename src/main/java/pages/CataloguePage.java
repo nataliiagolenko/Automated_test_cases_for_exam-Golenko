@@ -19,7 +19,7 @@ public class CataloguePage extends ParentPage {
 
     public CataloguePage openCataloguePage() {
         try {
-            webDriver.get("https://petstore.octoperf.com/actions/Account.action?signonForm=");
+            webDriver.get("https://petstore.octoperf.com/actions/Catalog.action");
             logger.info("Catalogue Page was opened");
         } catch (Exception e) {
             logger.error("Cannot open Catalogue page" + e);
@@ -36,5 +36,10 @@ public class CataloguePage extends ParentPage {
 
     public HeaderElement getHeaderElement() {
         return headerElement;
+    }
+
+    public FishCategoryPage clickOnFishCategory() {
+        clickOnElement(fishCategory);
+        return new FishCategoryPage(webDriver);
     }
 }
