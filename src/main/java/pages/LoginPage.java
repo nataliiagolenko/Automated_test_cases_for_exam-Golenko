@@ -19,6 +19,9 @@ public class LoginPage extends ParentPage {
     @FindBy(xpath = ".//*[text()='You must sign on before attempting to check out.  Please sign on and try checking out again.']")
     private WebElement warningMessage;
 
+    @FindBy(xpath = ".//a[text()='Register Now!']")
+    private WebElement registerButton;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -48,5 +51,10 @@ public class LoginPage extends ParentPage {
         checkLoginPageIsOpened();
         Assert.assertTrue("No warning message", isElementDisplayed(warningMessage));
         return this;
+    }
+
+    public RegistrationFormPage clickOnRegisterNowLink() {
+        clickOnElement(registerButton);
+        return new RegistrationFormPage(webDriver);
     }
 }

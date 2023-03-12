@@ -28,6 +28,15 @@ public class BaseTest {
 
     }
 
+   protected  void createNewUser() {
+        cataloguePage
+                .openCataloguePage()
+                .getHeaderElement().clickOnSignInLink()
+                .clickOnRegisterNowLink()
+                .fillInRegistrationForm()
+                .clickOnSaveAccountButton();
+    }
+
     @After
     public void tearDown() {
         webDriver.quit();

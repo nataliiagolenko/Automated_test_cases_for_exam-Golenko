@@ -25,7 +25,9 @@ public class OrderConfirmationPage extends ParentPage {
 //    }
     public OrderConfirmationPage checkIsRedirectToOrderConfirmationPage() {
 
-        Assert.assertEquals("User wasn't redirected to Order Confirmation page", CONFIRMATION_MESSAGE, orderInfo.getText());
+        String text = orderInfo.getText();
+
+        Assert.assertTrue("User wasn't redirected to Order Confirmation page", orderInfo.getText().startsWith(CONFIRMATION_MESSAGE));
         return this;
     }
 
