@@ -19,14 +19,7 @@ public class OrderConfirmationPage extends ParentPage {
         super(webDriver);
     }
 
-    //    public OrderConfirmationPage checkIsRedirectToOrderConfirmationPage() {
-//        Assert.assertTrue("User wasn't redirected to Order Confirmation page", isElementDisplayed(confirmButton));
-//        return this;
-//    }
     public OrderConfirmationPage checkIsRedirectToOrderConfirmationPage() {
-
-        String text = orderInfo.getText();
-
         Assert.assertTrue("User wasn't redirected to Order Confirmation page", orderInfo.getText().startsWith(CONFIRMATION_MESSAGE));
         return this;
     }

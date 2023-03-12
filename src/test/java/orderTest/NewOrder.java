@@ -3,8 +3,9 @@ package orderTest;
 import baseTest.BaseTest;
 import org.junit.Before;
 import org.junit.Test;
+import model.Order;
 
-public class newOrder extends BaseTest {
+public class NewOrder extends BaseTest {
     @Before
     public void setUp() {
         super.setUp();
@@ -13,6 +14,8 @@ public class newOrder extends BaseTest {
 
     @Test
     public void TC3_createNewOrder() {
+        Order order = new Order();
+
         cataloguePage
                 .openCataloguePage()
                 .getHeaderElement().clickOnSignInLink()
@@ -34,10 +37,11 @@ public class newOrder extends BaseTest {
                 .checkIsRedirectToOrderConfirmationPage()
                 .clickOnConfirmButton()
                 .checkIsRedirectToNewOrderPage()
+                .saveOrderId(order)
                 .getHeaderElement().clickOnMyAccountPage()
                 .checkIsRedirectToAccountPage()
                 .clickOnMyOrdersLink()
+                .checkCreatedOrderIsDisplayedIOnThePage(order)
         ;
-
     }
 }
