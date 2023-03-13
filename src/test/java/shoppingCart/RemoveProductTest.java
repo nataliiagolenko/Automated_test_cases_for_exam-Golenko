@@ -6,7 +6,7 @@ import org.junit.Test;
 public class RemoveProductTest extends BaseTest {
 
     @Test
-    public void removeProduct(){
+    public void TC4_removeProduct() {
         cataloguePage
                 .openCataloguePage()
                 .clickOnFishCategory()

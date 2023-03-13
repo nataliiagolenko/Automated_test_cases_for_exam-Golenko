@@ -18,10 +18,10 @@ public class ShoppingCart extends ParentPage {
     @FindBy(xpath = ".//*[text()='Remove']")
     private List<WebElement> removeList;
 
-    @FindBy (xpath = ".//table//tbody//td[5]//input")
+    @FindBy(xpath = ".//table//tbody//td[5]//input")
     private List<WebElement> quantityColumn;
 
-    @FindBy (xpath = ".//*[text()='Your cart is empty.']")
+    @FindBy(xpath = ".//*[text()='Your cart is empty.']")
     private WebElement emptyCardMessage;
 
     @FindBy(xpath = ".//a[@class='Button' and text()='Proceed to Checkout']")
@@ -31,7 +31,13 @@ public class ShoppingCart extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Cart.action?addItemToCart=&workingItemId=EST-1";
+    }
+
     public ShoppingCart checkIsRedirectToShoppingCart() {
+        checkURL();
         Assert.assertTrue("Failed adding product to shopping cart", isElementDisplayed(pageName));
         return this;
     }

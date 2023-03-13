@@ -50,14 +50,6 @@ public class CommonActionsWithElements {
         }
     }
 
-    private String getElementName(WebElement webElement) {
-        try {
-            return webElement.getAccessibleName();
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
 
     protected void enterTextIntoElement(WebElement webElement, String text) {
         try {
@@ -70,6 +62,14 @@ public class CommonActionsWithElements {
         }
     }
 
+
+    private String getElementName(WebElement webElement) {
+        try {
+            return webElement.getAccessibleName();
+        } catch (Exception e) {
+            return "";
+        }
+    }
 
 
     private void printErrorAndStopTest(Exception e) {

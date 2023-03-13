@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class OrderWithoutSignIn extends BaseTest {
     @Test
-    public void orderUnauthorizedUser(){
+    public void TC5_orderUnauthorizedUser() {
         cataloguePage
                 .openCataloguePage()
                 .clickOnFishCategory()
@@ -15,9 +15,7 @@ public class OrderWithoutSignIn extends BaseTest {
                 .checkIsRedirectToShoppingCart()
                 .checkProductIsAddedToShoppingCart()
                 .clickOnProceedToCheckOutButtonUnauthorized()
-                .checkIsRedirectToLoginPage()
-
-        ;
+                .checkIsRedirectToLoginPage();
     }
 }
 

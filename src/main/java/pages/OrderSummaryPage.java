@@ -13,8 +13,13 @@ public class OrderSummaryPage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Order.action?newOrderForm=";
+    }
+
     public OrderSummaryPage checkIsRedirectToOrderSummaryPage() {
-        //TODO checkURL
+        checkURL();
         Assert.assertTrue("User is not redirected to order summary page", isElementDisplayed(continueButton));
         return this;
     }

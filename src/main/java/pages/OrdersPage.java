@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.List;
 
 public class OrdersPage extends ParentPage {
@@ -14,6 +15,11 @@ public class OrdersPage extends ParentPage {
 
     public OrdersPage(WebDriver webDriver) {
         super(webDriver);
+    }
+
+    @Override
+    String getRelativeURL() {
+        return "/Order.action?listOrders=";
     }
 
     public OrdersPage checkCreatedOrderIsDisplayedIOnThePage(Order order) {

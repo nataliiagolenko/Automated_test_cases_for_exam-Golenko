@@ -19,7 +19,13 @@ public class OrderConfirmationPage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Order.action";
+    }
+
     public OrderConfirmationPage checkIsRedirectToOrderConfirmationPage() {
+        checkURL();
         Assert.assertTrue("User wasn't redirected to Order Confirmation page", orderInfo.getText().startsWith(CONFIRMATION_MESSAGE));
         return this;
     }

@@ -1,6 +1,7 @@
 package loginTest;
 
 import baseTest.BaseTest;
+import libs.TestData;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,8 +18,8 @@ public class LoginTest extends BaseTest {
                 .openCataloguePage()
                 .getHeaderElement().clickOnSignInLink()
                 .checkLoginPageIsOpened()
-                .enterUsernameIntoInputUsername("123newuser456")
-                .enterPasswordIntoInputPassword("qwerty1234")
+                .enterUsernameIntoInputUsername(TestData.LOGIN)
+                .enterPasswordIntoInputPassword(TestData.PASSWORD)
                 .clickOnLoginButton()
                 .getHeaderElement().checkUserIsLoggedIn()
                 .checkCataloguePageIsOpened();

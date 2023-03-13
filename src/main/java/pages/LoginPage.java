@@ -26,8 +26,13 @@ public class LoginPage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Account.action?signonForm=";
+    }
+
     public LoginPage checkLoginPageIsOpened() {
-        //TODO checkURL
+        checkURL();
         Assert.assertTrue("Wrong page is opened", isElementDisplayed(loginButton));
         return this;
     }
@@ -47,8 +52,7 @@ public class LoginPage extends ParentPage {
         return new CataloguePage(webDriver);
     }
 
-    public LoginPage checkIsRedirectToLoginPage(){
-        checkLoginPageIsOpened();
+    public LoginPage checkIsRedirectToLoginPage() {
         Assert.assertTrue("No warning message", isElementDisplayed(warningMessage));
         return this;
     }

@@ -1,10 +1,9 @@
 package pages;
 
+import libs.TestData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Random;
 
 public class RegistrationFormPage extends ParentPage {
 
@@ -55,10 +54,15 @@ public class RegistrationFormPage extends ParentPage {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Account.action?newAccountForm=";
+    }
+
     public RegistrationFormPage fillInRegistrationForm() {
-        enterTextIntoElement(userID, "123newuser456");
-        enterTextIntoElement(newPassword, "qwerty1234");
-        enterTextIntoElement(repeatPassword,"qwerty1234");
+        enterTextIntoElement(userID, TestData.LOGIN);
+        enterTextIntoElement(newPassword, TestData.PASSWORD);
+        enterTextIntoElement(repeatPassword, "qwerty1234");
         enterTextIntoElement(firstName, "TestFirstName");
         enterTextIntoElement(lastName, "TestLastName");
         enterTextIntoElement(email, "test@test.com");

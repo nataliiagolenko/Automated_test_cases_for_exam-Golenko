@@ -7,21 +7,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.elements.HeaderElement;
 
-public class OneOrderPage extends ParentPage{
-
-    @FindBy(xpath = "//*[text()='Thank you, your order has been submitted.']")
-    private WebElement successfulOrderMessage;
-
-    @FindBy(xpath = ".//table//tbody//tr//th")
-    private WebElement orderInfo;
+public class OneOrderPage extends ParentPage {
 
     private final HeaderElement headerElement = new HeaderElement(webDriver);
+    @FindBy(xpath = "//*[text()='Thank you, your order has been submitted.']")
+    private WebElement successfulOrderMessage;
+    @FindBy(xpath = ".//table//tbody//tr//th")
+    private WebElement orderInfo;
 
     public OneOrderPage(WebDriver webDriver) {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Order.action?newOrder=&confirmed=true";
+    }
+
     public OneOrderPage checkIsRedirectToNewOrderPage() {
+        checkURL();
         Assert.assertTrue("Order failed", isElementDisplayed(successfulOrderMessage));
         return this;
     }

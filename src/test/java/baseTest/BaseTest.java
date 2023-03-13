@@ -28,7 +28,10 @@ public class BaseTest {
 
     }
 
-   protected  void createNewUser() {
+    /**
+     * Додала метод створення юзера, оскільки періодично базу очіщують
+     */
+    protected void createNewUser() {
         cataloguePage
                 .openCataloguePage()
                 .getHeaderElement().clickOnSignInLink()

@@ -6,7 +6,7 @@ import org.junit.Test;
 public class AddProductTest extends BaseTest {
 
     @Test
-    public void addProduct(){
+    public void TC2_addProduct() {
         cataloguePage
                 .openCataloguePage()
                 .clickOnFishCategory()
@@ -14,7 +14,6 @@ public class AddProductTest extends BaseTest {
                 .clickOnTopSubCategory()
                 .addTopProductToCart()
                 .checkIsRedirectToShoppingCart()
-                .checkProductIsAddedToShoppingCart()
-                ;
+                .checkProductIsAddedToShoppingCart();
     }
 }

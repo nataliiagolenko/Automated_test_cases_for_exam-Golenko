@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccountPage extends ParentPage{
+public class AccountPage extends ParentPage {
 
     @FindBy(xpath = ".//*[text()='My Orders']")
     private WebElement myOrders;
@@ -17,13 +17,18 @@ public class AccountPage extends ParentPage{
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Account.action?editAccountForm=";
+    }
+
     public OrdersPage clickOnMyOrdersLink() {
         clickOnElement(myOrders);
         return new OrdersPage(webDriver);
     }
 
     public AccountPage checkIsRedirectToAccountPage() {
-        //TODO checkURL
+        checkURL();
         Assert.assertTrue("Account Page wasn't opened", isElementDisplayed(accountInfo));
         return this;
 

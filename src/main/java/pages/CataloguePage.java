@@ -8,18 +8,22 @@ import pages.elements.HeaderElement;
 
 public class CataloguePage extends ParentPage {
 
+    private final HeaderElement headerElement = new HeaderElement(webDriver);
     @FindBy(xpath = ".//img[@src='../images/fish_icon.gif']")
     private WebElement fishCategory;
-
-    private final HeaderElement headerElement = new HeaderElement(webDriver);
 
     public CataloguePage(WebDriver webDriver) {
         super(webDriver);
     }
 
+    @Override
+    String getRelativeURL() {
+        return "/Catalog.action";
+    }
+
     public CataloguePage openCataloguePage() {
         try {
-            webDriver.get("https://petstore.octoperf.com/actions/Catalog.action");
+            webDriver.get(base_url + getRelativeURL());
             logger.info("Catalogue Page was opened");
         } catch (Exception e) {
             logger.error("Cannot open Catalogue page" + e);
@@ -30,6 +34,7 @@ public class CataloguePage extends ParentPage {
 
 
     public CataloguePage checkCataloguePageIsOpened() {
+        checkURL();
         Assert.assertTrue("Wrong page is opened", isElementDisplayed(fishCategory));
         return this;
     }

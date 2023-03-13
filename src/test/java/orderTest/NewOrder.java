@@ -1,9 +1,10 @@
 package orderTest;
 
 import baseTest.BaseTest;
+import libs.TestData;
+import model.Order;
 import org.junit.Before;
 import org.junit.Test;
-import model.Order;
 
 public class NewOrder extends BaseTest {
     @Before
@@ -20,8 +21,8 @@ public class NewOrder extends BaseTest {
                 .openCataloguePage()
                 .getHeaderElement().clickOnSignInLink()
                 .checkLoginPageIsOpened()
-                .enterUsernameIntoInputUsername("123newuser456")
-                .enterPasswordIntoInputPassword("qwerty1234")
+                .enterUsernameIntoInputUsername(TestData.LOGIN)
+                .enterPasswordIntoInputPassword(TestData.PASSWORD)
                 .clickOnLoginButton()
                 .getHeaderElement().checkUserIsLoggedIn()
                 .checkCataloguePageIsOpened()
@@ -41,7 +42,6 @@ public class NewOrder extends BaseTest {
                 .getHeaderElement().clickOnMyAccountPage()
                 .checkIsRedirectToAccountPage()
                 .clickOnMyOrdersLink()
-                .checkCreatedOrderIsDisplayedIOnThePage(order)
-        ;
+                .checkCreatedOrderIsDisplayedIOnThePage(order);
     }
 }
